@@ -7,7 +7,7 @@ def cached_plot_equations(equations_x, equations_y):
     @st.cache_data
     def _plot_equations_cached(equations_x, equations_y):
         fig = px.line(x=np.linspace(-10, 10, 400))
-        
+        fig.data=[]
         x, y = sp.symbols('x y')
         
         for eq in equations_x:

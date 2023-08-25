@@ -13,7 +13,7 @@ def cached_plot_equations(equations_x, equations_y):
         for eq in equations_x:
             try:
                 parsed_eq = sp.sympify(eq)
-                x_vals = np.linspace(-100, 100, 40000)
+                x_vals = np.linspace(-100, 100, 4000)
                 y_vals = np.array([parsed_eq.subs(x, val) for val in x_vals], dtype=np.float32)
                 fig.add_scatter(x=x_vals, y=y_vals, mode='lines', name=f'y = {eq}', line_shape='linear')
             except Exception as e:
@@ -22,7 +22,7 @@ def cached_plot_equations(equations_x, equations_y):
         for eq in equations_y:
             try:
                 parsed_eq = sp.sympify(eq)
-                y_vals = np.linspace(-100, 100, 40000)
+                y_vals = np.linspace(-100, 100, 4000)
                 x_vals = np.array([parsed_eq.subs(y, val) for val in y_vals], dtype=np.float32)
                 fig.add_scatter(x=x_vals, y=y_vals, mode='lines', name=f'x = {eq}', line_shape='linear')
             except Exception as e:
